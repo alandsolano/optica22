@@ -1,0 +1,31 @@
+<header>
+    <h1 class="form-title">Buscar Cliente</h1>
+</header>
+<section class="container">
+    <nav class="navbar">
+        <ul>
+            <li><a routerLink="/home" routerLinkActive="active-link">Inicio</a></li>
+            <li><a routerLink="/cliente-registro" routerLinkActive="active-link">Registrar Cliente</a></li>
+            <li><a routerLink="/consulta-registro" routerLinkActive="active-link">Registrar Consulta</a></li>
+            <li><a routerLink="/formula-registro" routerLinkActive="active-link">Registrar Fórmula</a></li>
+            <li><a routerLink="/venta-registro" routerLinkActive="active-link">Registrar Venta</a></li>
+            <li><a routerLink="/buscar-cliente" routerLinkActive="active-link">Buscar Cliente</a></li>
+        </ul>
+    </nav>
+    <section>
+        <form class="buscar-form" (ngSubmit)="buscarCliente()" (submit)="preventDefault($event)">
+            <fieldset>
+                <legend>Buscar Cliente</legend>
+
+                <label for="documento">Documento del Cliente:</label>
+                <input id="documento" type="text" placeholder="Ingrese el documento del cliente" required />
+
+                <button type="submit" class="submit-button" (click)="buscarCliente()">Buscar</button>
+            </fieldset>
+        </form>
+
+        <div id="resultadoBusqueda">
+            <p>No se encontraron resultados.</p>
+        </div>
+    </section>
+</section>

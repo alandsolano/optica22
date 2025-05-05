@@ -1,0 +1,44 @@
+<header>
+    <h1 class="form-title">Registrar Consulta</h1>
+  </header>
+  
+  <section class="container">
+    <nav class="navbar">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active-link">Inicio</a></li>
+        <li><a routerLink="/cliente-registro" routerLinkActive="active-link">Registrar Cliente</a></li>
+        <li><a routerLink="/consulta-registro" routerLinkActive="active-link">Registrar Consulta</a></li>
+        <li><a routerLink="/formula-registro" routerLinkActive="active-link">Registrar Fórmula</a></li>
+        <li><a routerLink="/venta-registro" routerLinkActive="active-link">Registrar Venta</a></li>
+        <li><a routerLink="/buscar-cliente" routerLinkActive="active-link">Buscar Cliente</a></li>
+      </ul>
+    </nav>
+  
+    <form class="consulta-form">
+      <label for="patientName">Nombre del Paciente:</label>
+      <input type="text" id="patientName" name="patientName" placeholder="Ingrese el nombre del paciente" required />
+  
+      <label for="date">Fecha de la Consulta:</label>
+      <input type="date" id="date" name="date" required />
+  
+      <label for="diagnosis">Diagnóstico:</label>
+      <textarea
+        id="diagnosis"
+        name="diagnosis"
+        placeholder="Escriba el diagnóstico"
+        rows="4"
+        required
+      ></textarea>
+  
+      <label for="notes">Notas Adicionales:</label>
+      <textarea
+        id="notes"
+        name="notes"
+        placeholder="Escriba notas adicionales"
+        rows="4"
+      ></textarea>
+  
+      <button type="submit">Registrar Consulta</button>
+    </form>
+  </section>
+  

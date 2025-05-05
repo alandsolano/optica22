@@ -1,0 +1,39 @@
+<header>
+    <h1 class="form-title">Registrar Cliente</h1>
+</header>
+<section class="container">
+    <nav class="navbar">
+        <ul>
+          <li><a routerLink="/home" routerLinkActive="active-link">Inicio</a></li>
+          <li><a routerLink="/cliente-registro">Registrar Cliente</a></li>
+          <li><a routerLink="/consulta-registro" routerLinkActive="active-link">Registrar Consulta</a></li>
+          <li><a routerLink="/formula-registro" routerLinkActive="active-link">Registrar Fórmula</a></li>
+          <li><a routerLink="/venta-registro" routerLinkActive="active-link">Registrar Venta</a></li>
+          <li><a routerLink="/buscar-cliente" routerLinkActive="active-link">Buscar Cliente</a></li>
+          
+        </ul>
+      </nav>
+  
+        <form class="cliente-form">
+          
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre completo" required>
+         
+            <label for="documento">Documento:</label>
+            <input type="text" id="documento" name="documento" placeholder="Ingrese el número de documento" required>
+          
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ingrese el número de teléfono" required>
+         
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" placeholder="Ingrese el correo electrónico" required>
+      
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Ingrese la dirección" required>
+       
+          <button type="submit" class="btn-submit">Registrar</button>
+        </form>
+      </section>
+
+  
+  

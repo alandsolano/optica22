@@ -1,0 +1,67 @@
+<header>
+  <h1 class="form-title">Registrar Venta</h1>
+</header>
+<section class="container">
+  <nav class="navbar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active-link">Inicio</a></li>
+      <li><a routerLink="/cliente-registro" routerLinkActive="active-link">Registrar Cliente</a></li>
+      <li><a routerLink="/consulta-registro" routerLinkActive="active-link">Registrar Consulta</a></li>
+      <li><a routerLink="/formula-registro" routerLinkActive="active-link">Registrar Fórmula</a></li>
+      <li><a routerLink="/venta-registro" routerLinkActive="active-link">Registrar Venta</a></li>
+      <li><a routerLink="/buscar-cliente" routerLinkActive="active-link">Buscar Cliente</a></li>
+    </ul>
+  </nav>
+    <form class="venta-form">
+      <fieldset>
+        <legend>Detalles de la Venta</legend>
+
+        <label for="fechaVenta">Fecha de Venta:</label>
+        <input id="fechaVenta" type="date" required />
+
+        <label for="totalVenta">Total de la Venta:</label>
+        <input id="totalVenta" type="number" step="0.01" placeholder="Ingrese el total de la venta" required />
+
+        <label for="formaPago">Forma de Pago:</label>
+        <select id="formaPago" required>
+          <option value="" disabled selected>Seleccione una opción</option>
+          <option value="efectivo">Efectivo</option>
+          <option value="tarjeta">Tarjeta</option>
+          <option value="transferencia">Transferencia</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Detalle de Lentes</legend>
+
+        <label for="nombreComercial">Nombre Comercial:</label>
+        <input id="nombreComercial" type="text" placeholder="Ingrese el nombre comercial del lente" required />
+
+        <label for="tipoLente">Tipo de Lente:</label>
+        <select id="tipoLente" required>
+          <option value="" disabled selected>Seleccione un tipo</option>
+          <option value="monofocal">Monofocal</option>
+          <option value="bifocal">Bifocal</option>
+          <option value="progresivo">Progresivo</option>
+        </select>
+
+        <label for="material">Material:</label>
+        <input id="material" type="text" placeholder="Ingrese el material del lente" required />
+
+        <label for="color">Color:</label>
+        <input id="color" type="text" placeholder="Ingrese el color del lente" required />
+
+        <label for="precioUnitario">Precio Unitario:</label>
+        <input id="precioUnitario" type="number" step="0.01" placeholder="Ingrese el precio unitario" required />
+
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" type="number" placeholder="Ingrese la cantidad" required />
+
+        <label for="subtotal">Subtotal:</label>
+        <input id="subtotal" type="number" step="0.01" placeholder="Subtotal (calculado automáticamente)" disabled />
+      </fieldset>
+
+      <button type="submit" class="submit-button">Guardar Venta</button>
+    </form>
+  </section>
+

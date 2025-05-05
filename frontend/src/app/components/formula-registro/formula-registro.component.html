@@ -1,0 +1,43 @@
+<header>
+  <h1 class="form-title">Registrar Fórmula Óptica</h1>
+</header>
+<section class="container">
+  <nav class="navbar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active-link">Inicio</a></li>
+      <li><a routerLink="/cliente-registro">Registrar Cliente</a></li>
+      <li><a routerLink="/consulta-registro" routerLinkActive="active-link">Registrar Consulta</a></li>
+      <li><a routerLink="/formula-registro" routerLinkActive="active-link">Registrar Fórmula</a></li>
+      <li><a routerLink="/venta-registro" routerLinkActive="active-link">Registrar Venta</a></li>
+      <li><a routerLink="/buscar-cliente" routerLinkActive="active-link">Buscar Cliente</a></li>
+    </ul>
+  </nav>
+    <form class="formula-form">
+      <fieldset>
+        <legend>Ojo Derecho</legend>
+        <label for="ojoDerechoEsfera">Esfera:</label>
+        <input id="ojoDerechoEsfera" type="number" step="0.01" placeholder="Ingrese la esfera del ojo derecho" required />
+        
+        <label for="ojoDerechoCilindro">Cilindro:</label>
+        <input id="ojoDerechoCilindro" type="number" step="0.01" placeholder="Ingrese el cilindro del ojo derecho" required />
+        
+        <label for="ojoDerechoEje">Eje:</label>
+        <input id="ojoDerechoEje" type="number" placeholder="Ingrese el eje del ojo derecho" required />
+      </fieldset>
+      
+      <fieldset>
+        <legend>Ojo Izquierdo</legend>
+        <label for="ojoIzquierdoEsfera">Esfera:</label>
+        <input id="ojoIzquierdoEsfera" type="number" step="0.01" placeholder="Ingrese la esfera del ojo izquierdo" required />
+        
+        <label for="ojoIzquierdoCilindro">Cilindro:</label>
+        <input id="ojoIzquierdoCilindro" type="number" step="0.01" placeholder="Ingrese el cilindro del ojo izquierdo" required />
+        
+        <label for="ojoIzquierdoEje">Eje:</label>
+        <input id="ojoIzquierdoEje" type="number" placeholder="Ingrese el eje del ojo izquierdo" required />
+      </fieldset>
+      
+      <button type="submit" class="submit-button">Guardar Fórmula</button>
+    </form>
+  </section>
+

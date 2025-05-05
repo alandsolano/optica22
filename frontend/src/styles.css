@@ -1,0 +1,96 @@
+/* Contenedor principal */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Título */
+.form-title {
+  color: #F29B30;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Navbar */
+nav.navbar {
+  padding: 1rem;
+  width: 15%;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+nav.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav.navbar ul li {
+  margin-bottom: 1rem;
+}
+
+nav.navbar ul a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  display: block;
+  background-color: #F29B30;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+nav.navbar ul a:hover {
+  background-color: #D94848;
+  transform: scale(1.05);
+}
+
+/* Formulario */
+.consulta-form, .cliente-form, .formula-form, .venta-form {
+  width: 70%;
+  padding: 1.5rem;
+  background-color: white;
+  border: 2px solid #04ADBF;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.buscar-form label,.consulta-form label, .cliente-form label, .formula-form label, .venta-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #F29B30;
+}
+
+.consulta-form input,.buscar-form input,
+.consulta-form textarea, .cliente-form input, .formula-form input, .venta-form input, select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.buscar-form button,.consulta-form button, .cliente-form button, .formula-form button, .venta-form button {
+  background-color: #04ADBF;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.consulta-form button:hover, .cliente-form button:hover, .formula-form button:hover, .venta-form button:hover, .buscar-form button:hover {
+  background-color: #D94848;
+}
+
+fieldset {
+  border: 2px solid #04ADBF;
+  border-radius: 8px;
+  padding: 1rem;
+}
