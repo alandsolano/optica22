@@ -17,6 +17,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@types/cors": "^2.8.17",
     "@types/morgan": "^1.9.9",
     "@types/sequelize": "^4.28.20",
     "cors": "^2.8.5",

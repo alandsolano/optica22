@@ -19,4 +19,25 @@ export class ClienteController {
         res.status(500).send(error);
       }
     }
+
+    public async getOneCliente(req: Request, res:Response){
+        const { id: idParam } = req.params
+
+        try {
+            const cliente:ClienteI | null = await Cliente.findOne(
+                {
+                    where: { 
+                        id: idParam,
+                    }
+                }
+            )
+            if (cliente){
+                res.status(200).json(cliente)
+            } else return  res.status(300).json({msg: "El Cliente no existe"})
+
+        } catch (error) {
+            res.status(500).json({msg: "Error Internal"})
+        }
+    }
+
   }
