@@ -9,6 +9,14 @@ export class Consulta extends Model {
     public clienteId!: number;
   }
 
+  export interface ConsultaI{
+    fechaConsulta: Date;
+    motivo: string;
+    diagnostico: string;
+    observaciones: string;
+    clienteId: number;
+  }
+
   Consulta.init(
     {
       fechaConsulta: {

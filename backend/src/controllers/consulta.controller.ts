@@ -1,6 +1,6 @@
 import {  Request, Response } from 'express';
 import { where } from 'sequelize/types';
-import { Consulta } from '../models/consulta';
+import { Consulta, ConsultaI } from '../models/consulta';
 
 export class ConsultaController {
     public async test(req: Request, res: Response) {

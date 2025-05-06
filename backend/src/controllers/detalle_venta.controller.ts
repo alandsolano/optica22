@@ -1,6 +1,6 @@
 import {  Request, Response } from 'express';
 import { where } from 'sequelize/types';
-import { DetalleVentaLente } from '../models/detalle_venta';
+import { DetalleVentaLente, DetalleVentaLenteI } from '../models/detalle_venta';
 
 export class DetalleVentaLenteController {
     public async test(req: Request, res: Response) {

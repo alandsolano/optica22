@@ -11,6 +11,16 @@ export class FormulaOptica extends Model {
     public consultaId!: number;
   }
 
+  export interface FormulaOpticaI{
+    ojoDerEsfera: string;
+    ojoDerCilindro: string;
+    ojoDerEje: string;
+    ojoIzqEsfera: string;
+    ojoIzqCilindro: string;
+    ojoIzqEje: string;
+    consultaId: number;
+  }
+
   FormulaOptica.init(
     {
       ojoDerEsfera: {

@@ -8,6 +8,13 @@ export class Venta extends Model {
     public consultaId!: number;
   }
 
+  export interface VentaI{
+    fechaVenta: Date;
+    totalVenta: number;
+    formaPago: string;
+    consultaId: number;
+  }
+
   Venta.init(
     {
       fechaVenta: {

@@ -1,6 +1,6 @@
 import {  Request, Response } from 'express';
 import { where } from 'sequelize/types';
-import { Cliente } from '../models/cliente';
+import { Cliente, ClienteI } from '../models/cliente';
 
 export class ClienteController {
     public async test(req: Request, res: Response) {

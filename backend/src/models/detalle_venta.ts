@@ -8,6 +8,13 @@ export class DetalleVentaLente extends Model {
     public idLente!: number;
   }
 
+  export interface DetalleVentaLenteI{
+    cantidad: number;
+    subtotal: number;
+    idVenta: number;
+    idLente: number;
+  }
+
 DetalleVentaLente.init(
     {
       cantidad: {

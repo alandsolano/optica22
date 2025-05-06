@@ -1,6 +1,6 @@
 import {  Request, Response } from 'express';
 import { where } from 'sequelize/types';
-import { Lente } from '../models/lente';
+import { Lente, LenteI } from '../models/lente';
 
 export class LenteController {
     public async test(req: Request, res: Response) {

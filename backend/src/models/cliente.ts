@@ -9,6 +9,14 @@ export class Cliente extends Model {
     public direccion!: string;
   }
 
+  export interface ClienteI{
+    nombre: string;
+    documento: string;
+    telefono: string;
+    correo: string;
+    direccion: string;    
+  }
+
   Cliente.init(
     {
       nombre: {

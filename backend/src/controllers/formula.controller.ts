@@ -1,6 +1,6 @@
 import {  Request, Response } from 'express';
 import { where } from 'sequelize/types';
-import { FormulaOptica } from '../models/formula';
+import { FormulaOptica, FormulaOpticaI } from '../models/formula';
 
 export class FormulaOpticaController {
     public async test(req: Request, res: Response) {

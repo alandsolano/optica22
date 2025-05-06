@@ -9,6 +9,14 @@ export class Lente extends Model {
     public precioUnitario!: number;
   }
 
+  export interface LenteI{
+    nombreComercial: string;
+    tipoLente: string;
+    material: string;
+    color: string;
+    precioUnitario: number;
+  }
+
 Lente.init(
     {
       nombreComercial: {
