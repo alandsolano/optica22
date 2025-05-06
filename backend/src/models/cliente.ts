@@ -34,6 +34,7 @@ export class Cliente extends Model {
       correo: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
       },
       direccion: {
         type: DataTypes.STRING,
@@ -41,8 +42,8 @@ export class Cliente extends Model {
       },
     },
     {
-        sequelize,
-        modelName:"cliente",
+      sequelize,
+      modelName:"cliente",
       tableName: "clientes",
       timestamps: false
     }

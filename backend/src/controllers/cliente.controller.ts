@@ -1,5 +1,5 @@
 import {  Request, Response } from 'express';
-import { where } from 'sequelize/types';
+// import { where } from 'sequelize/types';
 import { Cliente, ClienteI } from '../models/cliente';
 
 export class ClienteController {
@@ -56,10 +56,10 @@ export class ClienteController {
   
     public async getAllCliente(req: Request, res: Response) {
       try {
-        const clientes = await Cliente.findAll();
+        const clientes: ClienteI[] = await Cliente.findAll();
         res.status(200).json({ clientes });
       } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json({error: "Error fetching clientes"});
       }
     }
 
