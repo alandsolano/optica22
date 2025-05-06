@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { database } from "../database/db";
+import { sequelize } from "../database/db";
 
 export class Consulta extends Model {
     public fechaConsulta!: Date;
@@ -41,8 +41,9 @@ export class Consulta extends Model {
       },
     },
     {
+        sequelize,
+        modelName:"consulta",
       tableName: "consultas",
-      sequelize: database,
-      timestamps: true,
+      timestamps: false
     }
   );

@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { database } from "../database/db";
+import { sequelize } from "../database/db";
 
 export class FormulaOptica extends Model {
     public ojoDerEsfera!: string;
@@ -53,8 +53,9 @@ export class FormulaOptica extends Model {
       },
     },
     {
+        sequelize,
+        modelName:"formula",
       tableName: "formulas_opticas",
-      sequelize: database,
-      timestamps: true,
+      timestamps: false
     }
   );

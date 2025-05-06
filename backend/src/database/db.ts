@@ -51,3 +51,4 @@ export const sequelize = new Sequelize(config.database, config.username, config.
   host: config.host,
   dialect: config.dialect as any,
 });
+
