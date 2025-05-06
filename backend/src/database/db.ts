@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
 
-const DB_NAME = 'almacen2022_mysql_nodejs';
+const DB_NAME = 'optica';
 
-const DB_USER = 'root';
+const DB_USER = 'alan';
 
-const DB_PASS = 'MiNiCo57**';
+const DB_PASS = 'alan';
 
 
 
