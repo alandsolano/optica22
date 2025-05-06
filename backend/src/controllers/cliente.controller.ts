@@ -10,15 +10,6 @@ export class ClienteController {
         res.status(500).send(error);
       }
     }
-  
-    public async getAllCliente(req: Request, res: Response) {
-      try {
-        const clientes = await Cliente.findAll();
-        res.status(200).json({ clientes });
-      } catch (error) {
-        res.status(500).send(error);
-      }
-    }
 
     public async getOneCliente(req: Request, res:Response){
         const { id: idParam } = req.params
@@ -38,6 +29,38 @@ export class ClienteController {
         } catch (error) {
             res.status(500).json({msg: "Error Internal"})
         }
+    }
+
+    public async createCliente(req: Request, res: Response) {
+        const {
+          NOMBRE,
+          DOCUMENTO,
+          TELEFONO,
+          CORREO,
+          DIRECCION
+        } = req.body;
+    
+        try {
+          const cliente = await Cliente.create({
+            NOMBRE,
+            DOCUMENTO,
+            TELEFONO,
+            CORREO,
+            DIRECCION
+          });
+          res.status(201).json({ cliente });
+        } catch (error) {
+          res.status(500).json({ error: 'Error al crear el cliente', details: error });
+        }
+      }
+  
+    public async getAllCliente(req: Request, res: Response) {
+      try {
+        const clientes = await Cliente.findAll();
+        res.status(200).json({ clientes });
+      } catch (error) {
+        res.status(500).send(error);
+      }
     }
 
   }

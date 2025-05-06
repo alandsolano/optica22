@@ -1,42 +1,54 @@
-import express, { Application } from 'express';
-import morgan from 'morgan';
-import { Routes } from '../routes/index';   
-var cors = require("cors"); // install en node y types
+import dotenv from "dotenv";
+import express, { Application } from "express";
+import morgan from "morgan";
+import cors from "cors";
+import { sequelize } from "../database/db";
+
+// Cargar variables de entorno desde el archivo .env
+dotenv.config();
 
 export class App {
-    public routePrv: Routes =  new Routes();
-    app: Application;
+  public app: Application;
 
-    constructor(
-        private port?: number | string
-    ) {
-        this.app = express();
-        this.settings();
-        this.middlewares();
-        this.routes()
+  constructor(private port?: number | string) {
+    this.app = express();
+
+    this.settings();
+    this.middlewares();
+    this.routes();
+    this.dbConnection(); // Llamar al método de conexión a la base de datos
+  }
+
+  // Configuración de la aplicación
+  private settings(): void {
+    this.app.set('port', this.port || process.env.PORT || 4000);
+  }
+
+  // Configuración de middlewares
+  private middlewares(): void {
+    this.app.use(morgan('dev'));
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: false }));
+  }
+
+  // Configuración de rutas
+  private routes(): void {
+     
+  }
+
+  // Método para conectar y sincronizar la base de datos
+  private async dbConnection(): Promise<void> {
+    try {
+      await sequelize.sync({ force: true }); // Sincronizar la base de datos
+      console.log("Database connected successfully");
+    } catch (error) {
+      console.error("Unable to connect to the database:", error);
     }
+  }
 
-    private settings() {
-        this.app.set('port', this.port || process.env.PORT || 4000);
-    }
-
-    private middlewares() {
-        this.app.use(morgan('dev'));
-        this.app.use(express.json()); // leer json raw
-        this.app.use(express.urlencoded({ extended: false })); //leer json form
-    }
-
-    routes() {
-        this.routePrv.clienteRoutes.routes(this.app)
-    }
-
-
-   async listen() {
-        await this.app.listen(this.app.get('port'));
-        // await this.app.listen(this.port);
-        // console.log('Server on port', this.port);
-        console.log('Server on port', this.app.get('port'));
-    }
-
+  // Iniciar el servidor
+  async listen() {
+    await this.app.listen(this.app.get('port'));
+    console.log('Server on port', this.app.get('port'));
+  }
 }
-
