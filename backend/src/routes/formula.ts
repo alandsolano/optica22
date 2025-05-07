@@ -7,5 +7,10 @@ export class FormulaOpticaRoutes {
     public routes(app: Application): void {
       app.route("/formulasOpticas/test").get(this.formulaOpticaController.test);
       app.route("/formulasOpticas").get(this.formulaOpticaController.getAllFormulaOptica);
+      app.route("/formula").post(this.formulaOpticaController.createFormula);
+      app.route("/formulasOpticas/:id").patch(this.formulaOpticaController.updateFormula);
+      app.route("/formulasOpticas/:id").delete(this.formulaOpticaController.deleteFormula);
+      app.route("/formulasOpticas/:id").get(this.formulaOpticaController.getFormulaById);
+      
     }
   }
