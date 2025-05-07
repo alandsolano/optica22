@@ -44,6 +44,23 @@ export class ClienteController {
         res.status(400).json({error: error.message})
       }
     }
+
+    public async deleteCliente(req: Request, res:Response){
+
+      try{
+        const { id } = req.params;
+        const clienteToDelete = await Cliente.findByPk(id);
+
+        if (clienteToDelete){
+          await clienteToDelete.destroy();
+          res.status(200).json({ message: "Cliente deleted succesfully"});
+        } else {
+          res.status(404).json({ message: "Cliente no encontrado"});
+        }
+      }catch (error){
+        res.status(500).json({ message: "Error al eliminar al cliente"});
+      }
+    }
   
 
     public async getClienteById(req: Request, res:Response){
