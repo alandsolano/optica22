@@ -11,6 +11,41 @@ export class ClienteController {
       }
     }
 
+    public async updateCliente(req:Request, res:Response){
+      const { id:pk} = req.params;
+      const { nombre, documento, telefono, correo, direccion } = req.body;
+      try{
+
+        let body:ClienteI={
+          nombre,
+          documento,
+          telefono,
+          correo,
+          direccion
+        }
+
+        const clienteExist = await Cliente.findOne({
+          where: {
+            id: pk
+          }
+      });
+
+        if (clienteExist){
+          await clienteExist.update(
+            body, {
+              where: {id:pk}
+            }
+          );
+          res.status(200).json(clienteExist);
+        } else {
+          res.status(404).json({error: "Cliente no encontrado"});
+        }
+      } catch (error:any){
+        res.status(400).json({error: error.message})
+      }
+    }
+  
+
     public async getClienteById(req: Request, res:Response){
         const { id: idParam } = req.params
 
@@ -32,13 +67,7 @@ export class ClienteController {
     }
 
     public async createCliente(req: Request, res: Response) {
-        const {
-          nombre,
-          documento,
-          telefono,
-          correo,
-          direccion
-        } = req.body;
+        const { nombre, documento, telefono, correo, direccion } = req.body;
     
         try {
           let body:ClienteI={
@@ -49,6 +78,7 @@ export class ClienteController {
             direccion
           }
           const newCliente = await Cliente.create({...body});
+          res.status(201).json(newCliente);
         } catch (error) {
           res.status(500).json({ error: 'Error al crear el cliente', details: error });
         }

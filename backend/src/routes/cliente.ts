@@ -10,6 +10,7 @@ export class ClienteRoutes {
       app.route("/clientes").get(this.clienteController.getAllCliente);
       app.route("/cliente").post(this.clienteController.createCliente);
       app.route("/clientes/:id").get(this.clienteController.getClienteById);
+      app.route("/clientes/:id").patch(this.clienteController.updateCliente);
     }
   }
   
