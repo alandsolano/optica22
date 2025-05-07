@@ -1,5 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../database/db";
+import { Venta } from "./venta";
+import { Consulta } from "./consulta";
 
 export class Cliente extends Model {
     public nombre!: string;
@@ -48,3 +50,23 @@ export class Cliente extends Model {
       timestamps: false
     }
   );
+
+  Cliente.hasMany(Consulta, {
+    foreignKey: "clienteId",
+    as: "consultas",
+  });
+  
+  Consulta.belongsTo(Cliente, {
+    foreignKey: "clienteId",
+    as: "cliente",
+  });
+  
+  Cliente.hasMany(Venta, {
+    foreignKey: "clienteId",
+    as: "ventas",
+  });
+  
+  Venta.belongsTo(Cliente, {
+    foreignKey: "clienteId",
+    as: "cliente",
+  });

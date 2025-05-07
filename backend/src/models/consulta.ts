@@ -1,5 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../database/db";
+import { Venta } from "./venta";
+import { FormulaOptica } from "./formula";
 
 export class Consulta extends Model {
     public fechaConsulta!: Date;
@@ -47,3 +49,23 @@ export class Consulta extends Model {
       timestamps: false
     }
   );
+
+  Consulta.hasOne(FormulaOptica, {
+    foreignKey: "consultaId",
+    as: "formulaOptica",
+  });
+  
+  FormulaOptica.belongsTo(Consulta, {
+    foreignKey: "consultaId",
+    as: "consulta",
+  });
+  
+  Consulta.hasOne(Venta, {
+    foreignKey: "consultaId",
+    as: "venta",
+  });
+  
+  Venta.belongsTo(Consulta, {
+    foreignKey: "consultaId",
+    as: "consulta",
+  });

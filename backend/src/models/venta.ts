@@ -1,5 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../database/db";
+import { Lente } from "./lente";
+import { DetalleVentaLente } from "./detalle_venta";
 
 export class Venta extends Model {
     public fechaVenta!: Date;
@@ -41,3 +43,18 @@ export class Venta extends Model {
       timestamps: false
     }
   );
+
+  // Modelo Venta
+Venta.belongsToMany(Lente, {
+  through: DetalleVentaLente,
+  foreignKey: "idVenta",
+  otherKey: "idLente",
+  as: "lentes",
+});
+
+Lente.belongsToMany(Venta, {
+  through: DetalleVentaLente,
+  foreignKey: "idLente",
+  otherKey: "idVenta",
+  as: "ventas",
+});
