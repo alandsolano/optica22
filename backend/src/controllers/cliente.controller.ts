@@ -33,22 +33,22 @@ export class ClienteController {
 
     public async createCliente(req: Request, res: Response) {
         const {
-          NOMBRE,
-          DOCUMENTO,
-          TELEFONO,
-          CORREO,
-          DIRECCION
+          nombre,
+          documento,
+          telefono,
+          correo,
+          direccion
         } = req.body;
     
         try {
-          const cliente = await Cliente.create({
-            NOMBRE,
-            DOCUMENTO,
-            TELEFONO,
-            CORREO,
-            DIRECCION
-          });
-          res.status(201).json({ cliente });
+          let body:ClienteI={
+            nombre,
+            documento,
+            telefono,
+            correo,
+            direccion
+          }
+          const newCliente = await Cliente.create({...body});
         } catch (error) {
           res.status(500).json({ error: 'Error al crear el cliente', details: error });
         }
