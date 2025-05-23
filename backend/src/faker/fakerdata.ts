@@ -7,6 +7,7 @@ import { Venta } from '../models/venta';
 import { faker } from '@faker-js/faker';
 
 
+
 async function createFakeData() {
     // Crear clientes falsos
     for (let i = 0; i < 10; i++) {
