@@ -2,8 +2,9 @@ import dotenv from "dotenv";
 import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
-import { sequelize } from "../database/db";
+//import { sequelize } from "../database/db";
 import { Routes } from "../routes/index";
+import cookieParser from 'cookie-parser';
 
 // Cargar variables de entorno desde el archivo .env
 dotenv.config();
@@ -18,7 +19,7 @@ export class App {
     this.settings();
     this.middlewares();
     this.routes();
-    this.dbConnection(); // Llamar al método de conexión a la base de datos
+    //this.dbConnection(); // Llamar al método de conexión a la base de datos
   }
 
   // Configuración de la aplicación
@@ -30,19 +31,28 @@ export class App {
   private middlewares(): void {
     this.app.use(morgan('dev'));
     this.app.use(express.json());
+    this.app.use(cookieParser())
     this.app.use(express.urlencoded({ extended: false }));
   }
 
   // Configuración de rutas
   private routes(): void {
+    this.routePrv.authRoutes.routes(this.app);
+    this.routePrv.resourceRoutes.routes(this.app);
+    this.routePrv.refreshTokenRoutes.routes(this.app);
+    this.routePrv.roleUserRoutes.routes(this.app);
+    this.routePrv.roleRoutes.routes(this.app);
+    this.routePrv.resourceRole.routes(this.app);
+
     this.routePrv.clienteRoutes.routes(this.app);
     this.routePrv.consultaRoutes.routes(this.app);
     this.routePrv.detalleVentaLenteRoutes.routes(this.app);
     this.routePrv.formulaOpticaRoutes.routes(this.app);
     this.routePrv.lenteRoutes.routes(this.app);
-    this.routePrv.ventaRoutes.routes(this.app);     
+    this.routePrv.ventaRoutes.routes(this.app);
   }
 
+  /*
   // Método para conectar y sincronizar la base de datos
   private async dbConnection(): Promise<void> {
     try {
@@ -52,6 +62,7 @@ export class App {
       console.error("Unable to connect to the database:", error);
     }
   }
+    */
 
   // Iniciar el servidor
   async listen() {

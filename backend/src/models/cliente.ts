@@ -1,7 +1,8 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../database/db";
+//import { sequelize } from "../database/db";
 import { Venta } from "./venta";
 import { Consulta } from "./consulta";
+import { database } from "../database/db";
 
 export class Cliente extends Model {
     public nombre!: string;
@@ -44,7 +45,7 @@ export class Cliente extends Model {
       },
     },
     {
-      sequelize,
+      sequelize:database,
       modelName:"cliente",
       tableName: "clientes",
       timestamps: false

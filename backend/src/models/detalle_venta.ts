@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../database/db";
+import { database } from "../database/db";
 
 export class DetalleVentaLente extends Model {
     public cantidad!: number;
@@ -35,7 +35,7 @@ DetalleVentaLente.init(
       },
     },
     {
-        sequelize,
+        sequelize: database,
         modelName:"detalle_venta",
       tableName: "detalles_ventas_lentes",
       timestamps: false

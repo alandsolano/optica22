@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../database/db";
+import { database } from "../database/db";
 import { Venta } from "./venta";
 import { FormulaOptica } from "./formula";
 
@@ -43,7 +43,7 @@ export class Consulta extends Model {
       },
     },
     {
-        sequelize,
+        sequelize: database,
         modelName:"consulta",
       tableName: "consultas",
       timestamps: false

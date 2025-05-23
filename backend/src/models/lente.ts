@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../database/db";
+import { database } from "../database/db";
 
 export class Lente extends Model {
     public nombreComercial!: string;
@@ -41,7 +41,7 @@ Lente.init(
       },
     },
     {
-        sequelize,
+        sequelize: database,
         modelName:"lente",
       tableName: "lentes",
       timestamps: false
