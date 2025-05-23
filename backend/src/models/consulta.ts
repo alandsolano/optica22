@@ -2,6 +2,8 @@ import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../database/db";
 
 export class Consulta extends Model {
+    
+    public id!: number;
     public fechaConsulta!: Date;
     public motivo!: string;
     public diagnostico!: string;
