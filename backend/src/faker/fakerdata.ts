@@ -85,3 +85,9 @@ createFakeData().then(() => {
 }).catch((error) => {
     console.error('Error al crear datos falsos:', error);
 });
+
+
+// Para ejecutar este script, ejecute el siguiente comando:
+// npm install -g ts-node
+// ts-node src/faker/fakerdata.ts
+// npm install @faker-js/faker
