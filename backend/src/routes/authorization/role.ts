@@ -7,6 +7,7 @@ export class RoleRoutes {
   public routes(app: Application): void {
 
     app.route("/roles").post(this.roleController.createRole); // Crear un nuevo rol
+    
 
   }
 }
