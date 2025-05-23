@@ -3,12 +3,14 @@ import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { sequelize } from "../database/db";
+import { Routes } from "../routes/index";
 
 // Cargar variables de entorno desde el archivo .env
 dotenv.config();
 
 export class App {
   public app: Application;
+  public routePrv: Routes = new Routes();
 
   constructor(private port?: number | string) {
     this.app = express();
@@ -33,7 +35,12 @@ export class App {
 
   // Configuración de rutas
   private routes(): void {
-     
+    this.routePrv.clienteRoutes.routes(this.app);
+    this.routePrv.consultaRoutes.routes(this.app);
+    this.routePrv.detalleVentaLenteRoutes.routes(this.app);
+    this.routePrv.formulaOpticaRoutes.routes(this.app);
+    this.routePrv.lenteRoutes.routes(this.app);
+    this.routePrv.ventaRoutes.routes(this.app);     
   }
 
   // Método para conectar y sincronizar la base de datos

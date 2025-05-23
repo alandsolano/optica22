@@ -1,5 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../database/db";
+import { Venta } from "./venta";
+import { Consulta } from "./consulta";
 
 export class Cliente extends Model {
     
@@ -36,6 +38,7 @@ export class Cliente extends Model {
       correo: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
       },
       direccion: {
         type: DataTypes.STRING,
@@ -43,9 +46,29 @@ export class Cliente extends Model {
       },
     },
     {
-        sequelize,
-        modelName:"cliente",
+      sequelize,
+      modelName:"cliente",
       tableName: "clientes",
       timestamps: false
     }
   );
+
+  Cliente.hasMany(Consulta, {
+    foreignKey: "clienteId",
+    as: "consultas",
+  });
+  
+  Consulta.belongsTo(Cliente, {
+    foreignKey: "clienteId",
+    as: "cliente",
+  });
+  
+  Cliente.hasMany(Venta, {
+    foreignKey: "clienteId",
+    as: "ventas",
+  });
+  
+  Venta.belongsTo(Cliente, {
+    foreignKey: "clienteId",
+    as: "cliente",
+  });
