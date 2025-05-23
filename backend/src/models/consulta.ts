@@ -4,6 +4,8 @@ import { Venta } from "./venta";
 import { FormulaOptica } from "./formula";
 
 export class Consulta extends Model {
+    
+    public id!: number;
     public fechaConsulta!: Date;
     public motivo!: string;
     public diagnostico!: string;

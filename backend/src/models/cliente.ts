@@ -5,6 +5,8 @@ import { Consulta } from "./consulta";
 import { database } from "../database/db";
 
 export class Cliente extends Model {
+    
+    public id!: number;
     public nombre!: string;
     public documento!: string;
     public telefono!: string;
